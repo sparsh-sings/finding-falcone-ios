@@ -19,37 +19,6 @@ class PlanetVC: UIViewController {
     
 }
 
-extension PlanetVC {
-    
-    func updateConfigurations() {
-        let nib = UINib(nibName: "PlanetCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PlanetCell")
-        
-        viewModel.getPlanetList()
-        UpdateEvents()
-    }
-    
-    func UpdateEvents(){
-            self.viewModel.eventHandler = { [weak self] event in
-                guard let self else {
-                    return
-                }
-                switch event {
-                case .loading :
-                    debugPrint("loading")
-                case .dataLoading :
-                    debugPrint("Data is loading")
-                    debugPrint(self.viewModel.planets.count)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                case .error(let err) :
-                    debugPrint("Error occured", err)
-                }
-            }
-        }
-}
-
 extension PlanetVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,7 +35,9 @@ extension PlanetVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
+        vc.planet = viewModel.planets[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,3 +45,35 @@ extension PlanetVC : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension PlanetVC {
+    
+    func updateConfigurations() {
+        let nib = UINib(nibName: "PlanetCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "PlanetCell")
+        
+        updateEvents()
+        viewModel.getPlanetList()
+        
+    }
+    
+    func updateEvents(){
+            self.viewModel.eventHandler = { [weak self] event in
+                guard let self else {
+                    return
+                }
+                switch event {
+                case .loading :
+                    debugPrint("Data Started Loading.")
+                case .dataLoaded :
+                    debugPrint("Data Loaded Successfully")
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .error(let err) :
+                    debugPrint("Error Occured", err)
+                }
+            }
+        }
+}
+

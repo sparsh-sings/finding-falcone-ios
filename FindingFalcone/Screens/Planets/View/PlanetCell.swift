@@ -34,7 +34,7 @@ class PlanetCell: UITableViewCell {
         guard let planets = planets else { return }
         planetName.text = planets.name
         planetDistance.text = String(planets.distance ?? 0) + " Megamiles"
-        planetImage.image = UIImage(named: planets.name?.lowercased() ?? "")
+        planetImage.image = UIImage(named: planets.name?.lowercased() ?? "no_image")
     }
     
 }

@@ -14,9 +14,9 @@ class PlanetViewModel {
     
     func getPlanetList() {
         self.eventHandler?(.loading)
-        NetworkClass.shared.apiRequest(url: "https://findfalcone.geektrust.com/planets", params: [:], method: .get, responseObject: Planet.self, callBack: Callback(onSuccess: { success in
+        NetworkClass.shared.apiRequest(url: Constant.base_url + Constant.planets, params: [:], method: .get, responseObject: Planet.self, callBack: Callback(onSuccess: { success in
             self.planets = success
-            self.eventHandler?(.dataLoading)
+            self.eventHandler?(.dataLoaded)
         }, onFailure: { error in
             self.eventHandler?(.error(error))
         }))
@@ -29,7 +29,7 @@ extension PlanetViewModel {
     
     enum Events {
         case loading
-        case dataLoading
+        case dataLoaded
         case error(String?)
     }
 }
