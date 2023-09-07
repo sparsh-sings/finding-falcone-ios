@@ -20,6 +20,16 @@ class VehicleCell: UICollectionViewCell {
         }
     }
     
+    var isItemSelected : Bool? {
+        didSet {
+            if isItemSelected ?? false {
+                self.layer.borderWidth = 2.0
+                self.layer.borderColor = UIColor.systemGreen.cgColor
+            } else {
+                self.layer.borderWidth = 0.0
+            }
+        }
+    }
     
     
     override func awakeFromNib() {

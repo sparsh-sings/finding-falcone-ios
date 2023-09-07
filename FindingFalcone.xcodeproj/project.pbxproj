@@ -12,6 +12,7 @@
 		54138E1B2AA97B960087B96D /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E192AA97B960087B96D /* VehicleCell.swift */; };
 		54138E1C2AA97B960087B96D /* VehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54138E1A2AA97B960087B96D /* VehicleCell.xib */; };
 		54138E1E2AA97F370087B96D /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E1D2AA97F370087B96D /* VehicleViewModel.swift */; };
+		544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DB8992AA9C1C50026A676 /* CommonFunction.swift */; };
 		549192612AA83926005AA0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192602AA83926005AA0C3 /* AppDelegate.swift */; };
 		549192632AA83926005AA0C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192622AA83926005AA0C3 /* SceneDelegate.swift */; };
 		549192682AA83926005AA0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549192662AA83926005AA0C3 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		54138E192AA97B960087B96D /* VehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
 		54138E1A2AA97B960087B96D /* VehicleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleCell.xib; sourceTree = "<group>"; };
 		54138E1D2AA97F370087B96D /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
+		544DB8992AA9C1C50026A676 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		5491925D2AA83926005AA0C3 /* FindingFalcone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindingFalcone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549192602AA83926005AA0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549192622AA83926005AA0C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				54138E152AA974030087B96D /* Constant.swift */,
+				544DB8992AA9C1C50026A676 /* CommonFunction.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				54138E1B2AA97B960087B96D /* VehicleCell.swift in Sources */,
 				549192612AA83926005AA0C3 /* AppDelegate.swift in Sources */,
 				54F105892AA8DBF9000F3F8B /* UIButton+Extensions.swift in Sources */,
+				544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */,
 				54F1058E2AA8DBF9000F3F8B /* UITextView+Extensions.swift in Sources */,
 				54F1058D2AA8DBF9000F3F8B /* UIImage+Extensions.swift in Sources */,
 				54F1057D2AA8D844000F3F8B /* PlanetVC.swift in Sources */,

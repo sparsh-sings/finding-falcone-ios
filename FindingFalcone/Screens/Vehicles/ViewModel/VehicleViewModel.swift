@@ -12,10 +12,10 @@ class VehicleViewModel {
     var vehicles : Vehicles = []
     var eventHandler : ((_ events : Events) -> Void)?
     
-    func getVehicleData() {
+    func getVehicleData(distance : Int?) {
         self.eventHandler?(.loading)
         NetworkClass.shared.apiRequest(url: Constant.base_url + Constant.vehicles, params: [:], method: .get, responseObject: Vehicles.self, callBack: Callback(onSuccess: { response in
-            self.vehicles = response
+            self.vehicles = response.filter { ($0.maxDistance ?? 0) >= distance ?? 0 }
             self.eventHandler?(.dataLoaded)
         }, onFailure: { error in
             self.eventHandler?(.error(error))
