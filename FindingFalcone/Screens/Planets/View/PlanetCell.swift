@@ -7,11 +7,12 @@
 
 import UIKit
 
-class PlanetCell: UITableViewCell {
+class PlanetCell: UICollectionViewCell {
 
     @IBOutlet weak var planetImage: UIImageView!
     @IBOutlet weak var planetName: UILabel!
     @IBOutlet weak var planetDistance: UILabel!
+    @IBOutlet weak var vehicleImage: UIImageView!
     
     var planets: PlanetElement? {
         didSet {
@@ -24,11 +25,6 @@ class PlanetCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func planetSetup() {
         guard let planets = planets else { return }

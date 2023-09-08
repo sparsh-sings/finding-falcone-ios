@@ -9,7 +9,7 @@ import UIKit
 
 class PlanetVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewModel = PlanetViewModel()
     
     override func viewDidLoad() {
@@ -19,38 +19,35 @@ class PlanetVC: UIViewController {
     
 }
 
-extension PlanetVC : UITableViewDelegate, UITableViewDataSource {
+extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.planets.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell") as? PlanetCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetCell", for: indexPath) as? PlanetCell else {
+            return UICollectionViewCell()
         }
-        let planet = viewModel.planets[indexPath.row]
+        let planet = viewModel.planets[indexPath.item]
         cell.planets = planet
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
-        vc.planet = viewModel.planets[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        let cellWidth = (collectionViewWidth - 10) / 2
+        let cellHeight: CGFloat = 260.0
+        return CGSize(width: cellWidth, height: cellHeight)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
-    
+
 }
 
 extension PlanetVC {
     
     func updateConfigurations() {
         let nib = UINib(nibName: "PlanetCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PlanetCell")
+        collectionView.register(nib, forCellWithReuseIdentifier: "PlanetCell")
         
         updateEvents()
         viewModel.getPlanetList()
@@ -68,7 +65,7 @@ extension PlanetVC {
                 case .dataLoaded :
                     debugPrint("Data Loaded Successfully")
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        self.collectionView.reloadData()
                     }
                 case .error(let err) :
                     debugPrint("Error Occured", err)

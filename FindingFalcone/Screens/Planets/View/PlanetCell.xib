@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,57 +19,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlanetCell" rowHeight="178" id="KGk-i7-Jjw" customClass="PlanetCell" customModule="FindingFalcone" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="403" height="178"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetCell" id="fwT-oC-Nfc" customClass="PlanetCell" customModule="FindingFalcone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="260"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="403" height="178"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BQB-1t-ZOk">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJK-r1-V2m" customClass="SSView" customModule="FindingFalcone" customModuleProvider="target">
-                        <rect key="frame" x="20" y="20" width="363" height="138"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epf-AJ-R68" customClass="SSView" customModule="FindingFalcone" customModuleProvider="target">
+                        <rect key="frame" x="30" y="30" width="170" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yPy-F1-whT">
-                                <rect key="frame" x="20" y="29" width="80" height="80"/>
+                                <rect key="frame" x="45" y="20" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="2bW-bT-j63"/>
                                     <constraint firstAttribute="width" constant="80" id="GgW-89-emB"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yAy-G8-vI3">
-                                <rect key="frame" x="120" y="39" width="104" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Planet Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJe-1w-g0F">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="38.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Planet Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGz-jM-dPk">
-                                        <rect key="frame" x="0.0" y="43.333333333333329" width="97.666666666666671" height="16.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="9dX-wZ-yca"/>
-                                </constraints>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ftc-eQ-1Mb">
-                                <rect key="frame" x="280" y="39" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Gpw-TP-feR"/>
-                                    <constraint firstAttribute="width" constant="60" id="Tzr-h7-YyI"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xis-jy-VYG">
+                                <rect key="frame" x="20" y="115" width="130" height="21.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coH-2c-ksK">
+                                <rect key="frame" x="20" y="146.33333333333334" width="130" height="16.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yAy-G8-vI3" firstAttribute="centerY" secondItem="QJK-r1-V2m" secondAttribute="centerY" id="4Bf-fM-B4M"/>
-                            <constraint firstItem="yPy-F1-whT" firstAttribute="centerY" secondItem="QJK-r1-V2m" secondAttribute="centerY" id="EJg-V7-CeA"/>
-                            <constraint firstItem="yPy-F1-whT" firstAttribute="leading" secondItem="QJK-r1-V2m" secondAttribute="leading" constant="20" id="TPw-2F-doa"/>
-                            <constraint firstItem="yAy-G8-vI3" firstAttribute="leading" secondItem="yPy-F1-whT" secondAttribute="trailing" constant="20" id="zhy-nd-xhI"/>
+                            <constraint firstItem="coH-2c-ksK" firstAttribute="leading" secondItem="epf-AJ-R68" secondAttribute="leading" constant="20" id="0II-aw-xIA"/>
+                            <constraint firstItem="yPy-F1-whT" firstAttribute="top" secondItem="epf-AJ-R68" secondAttribute="top" constant="20" id="80h-th-5va"/>
+                            <constraint firstAttribute="trailing" secondItem="xis-jy-VYG" secondAttribute="trailing" constant="20" id="Epc-GM-blk"/>
+                            <constraint firstItem="yPy-F1-whT" firstAttribute="centerX" secondItem="epf-AJ-R68" secondAttribute="centerX" id="TWe-xz-8cG"/>
+                            <constraint firstItem="xis-jy-VYG" firstAttribute="top" secondItem="yPy-F1-whT" secondAttribute="bottom" constant="15" id="Zcj-qP-l5t"/>
+                            <constraint firstAttribute="trailing" secondItem="coH-2c-ksK" secondAttribute="trailing" constant="20" id="g4b-Cb-qOn"/>
+                            <constraint firstItem="coH-2c-ksK" firstAttribute="top" secondItem="xis-jy-VYG" secondAttribute="bottom" constant="10" id="lDt-7P-SfG"/>
+                            <constraint firstItem="xis-jy-VYG" firstAttribute="leading" secondItem="epf-AJ-R68" secondAttribute="leading" constant="20" id="oZc-xW-aAc"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -82,32 +71,42 @@
                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="0.0"/>
+                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                <real key="value" value="3"/>
+                                <real key="value" value="0.29999999999999999"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                <size key="value" width="0.0" height="0.29999999999999999"/>
+                                <size key="value" width="0.0" height="3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-0V-Tiv">
+                        <rect key="frame" x="0.0" y="200" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="XHX-g5-yMU"/>
+                            <constraint firstAttribute="width" constant="60" id="dhu-F8-ORJ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="QJK-r1-V2m" secondAttribute="trailing" constant="20" id="BJZ-Pn-eeS"/>
-                    <constraint firstItem="QJK-r1-V2m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="W1I-ax-arn"/>
-                    <constraint firstItem="QJK-r1-V2m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="tK7-vQ-JRm"/>
-                    <constraint firstAttribute="bottom" secondItem="QJK-r1-V2m" secondAttribute="bottom" constant="20" id="vUB-Ix-L6b"/>
+                    <constraint firstItem="MPf-0V-Tiv" firstAttribute="leading" secondItem="BQB-1t-ZOk" secondAttribute="leading" id="CMx-zM-puz"/>
+                    <constraint firstItem="epf-AJ-R68" firstAttribute="leading" secondItem="BQB-1t-ZOk" secondAttribute="leading" constant="30" id="CUb-8I-6sF"/>
+                    <constraint firstAttribute="bottom" secondItem="epf-AJ-R68" secondAttribute="bottom" constant="30" id="MfE-jT-qq2"/>
+                    <constraint firstItem="epf-AJ-R68" firstAttribute="top" secondItem="BQB-1t-ZOk" secondAttribute="top" constant="30" id="YWj-qV-gKu"/>
+                    <constraint firstAttribute="trailing" secondItem="epf-AJ-R68" secondAttribute="trailing" constant="30" id="e4X-pv-dSb"/>
+                    <constraint firstAttribute="bottom" secondItem="MPf-0V-Tiv" secondAttribute="bottom" id="f4n-Ku-xpC"/>
                 </constraints>
-            </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            </collectionViewCellContentView>
+            <size key="customSize" width="230" height="260"/>
             <connections>
-                <outlet property="planetDistance" destination="XGz-jM-dPk" id="MaO-bI-gy0"/>
-                <outlet property="planetImage" destination="yPy-F1-whT" id="FlH-cm-BQF"/>
-                <outlet property="planetName" destination="qJe-1w-g0F" id="IAb-5J-6Tz"/>
+                <outlet property="planetDistance" destination="coH-2c-ksK" id="Yfw-nx-RK4"/>
+                <outlet property="planetImage" destination="yPy-F1-whT" id="39k-MN-Qfw"/>
+                <outlet property="planetName" destination="xis-jy-VYG" id="eb2-sK-0Jy"/>
+                <outlet property="vehicleImage" destination="MPf-0V-Tiv" id="boy-hl-its"/>
             </connections>
-            <point key="canvasLocation" x="119.84732824427481" y="67.605633802816911"/>
-        </tableViewCell>
+            <point key="canvasLocation" x="713" y="145"/>
+        </collectionViewCell>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
