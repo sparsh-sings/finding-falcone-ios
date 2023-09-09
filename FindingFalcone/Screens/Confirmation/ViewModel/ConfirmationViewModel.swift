@@ -10,6 +10,8 @@ import Foundation
 class ConfirmationViewModel {
     
     var token: String?
+    var planetNames : [String] = []
+    var vehicleNames : [String] = []
     var eventHandler : ((_ events : Events) -> Void)?
     
     func getToken() {
@@ -22,6 +24,24 @@ class ConfirmationViewModel {
         }))
     }
     
+    func extractPlanetShips(data : [String:String]?) {
+        
+        self.eventHandler?(.loading)
+        
+        planetNames.removeAll()
+        vehicleNames.removeAll()
+        
+        guard let data = data else {
+            return
+        }
+        
+        for (planetName, vehicleName) in data {
+            planetNames.append(planetName)
+            vehicleNames.append(vehicleName)
+        }
+        
+        eventHandler?(.dataLoaded)
+    }
     
 }
 

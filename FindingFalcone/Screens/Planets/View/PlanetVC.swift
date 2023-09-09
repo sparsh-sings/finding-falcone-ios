@@ -25,10 +25,9 @@ class PlanetVC: UIViewController {
     }
     
     @IBAction func letsGoButtonAction(_ sender: UIButton) {
-        viewModel.mapdata()
-        
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
-//        self.navigationController?.pushViewController(vc, animated: true)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
+        vc.confirmList = viewModel.mapdata()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

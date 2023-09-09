@@ -11,16 +11,20 @@ class ConfirmationCell: UITableViewCell {
 
     @IBOutlet weak var vehicleImage: UIImageView!
     @IBOutlet weak var planetImage: UIImageView!
+    @IBOutlet weak var vehicleNameLabel: UILabel!
+    @IBOutlet weak var planetNameLabel: UILabel!
     
     var vehicleName : String? {
         didSet {
             vehicleImage.image = UIImage(named: vehicleName?.lowercased().replacingOccurrences(of: " ", with: "") ?? "")
+            vehicleNameLabel.text = vehicleName
         }
     }
     
     var planetName : String? {
         didSet {
             planetImage.image = UIImage(named: planetName?.lowercased().replacingOccurrences(of: " ", with: "") ?? "")
+            planetNameLabel.text = planetName
         }
     }
     

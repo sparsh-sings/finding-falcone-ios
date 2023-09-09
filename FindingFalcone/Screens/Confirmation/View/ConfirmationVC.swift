@@ -12,7 +12,7 @@ class ConfirmationVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = ConfirmationViewModel()
-    var confirmList : [String: Any]?
+    var confirmList : [String: String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,11 @@ class ConfirmationVC: UIViewController {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC else {
                 return
             }
-            vc.token = viewModel.token
+            vc.data = [
+                Constant.token : viewModel.token,
+                Constant.planets : viewModel.planetNames,
+                Constant.vehicles : viewModel.vehicleNames
+            ]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -39,21 +43,25 @@ class ConfirmationVC: UIViewController {
 extension ConfirmationVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10//confirmList?.count
+        if viewModel.planetNames.count == viewModel.vehicleNames.count {
+            return viewModel.planetNames.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmationCell") as? ConfirmationCell else {
             return UITableViewCell()
         }
-        cell.planetName = "donlon"
-        cell.vehicleName = "spacepod"
+        cell.planetName = viewModel.planetNames[indexPath.row]
+        cell.vehicleName = viewModel.vehicleNames[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
     
 }
@@ -66,6 +74,8 @@ extension ConfirmationVC {
         
         eventHandler()
         viewModel.getToken()
+        viewModel.extractPlanetShips(data: confirmList)
+       
     }
     
     fileprivate func eventHandler() {
@@ -80,6 +90,7 @@ extension ConfirmationVC {
                 debugPrint("Data Loaded Successfully")
                 DispatchQueue.main.async {
                     print(self.viewModel.token)
+                    self.tableView.reloadData()
                 }
             case .error(let err) :
                 debugPrint("Error Occured", err)

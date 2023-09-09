@@ -12,6 +12,9 @@
 		54138E1B2AA97B960087B96D /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E192AA97B960087B96D /* VehicleCell.swift */; };
 		54138E1C2AA97B960087B96D /* VehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54138E1A2AA97B960087B96D /* VehicleCell.xib */; };
 		54138E1E2AA97F370087B96D /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E1D2AA97F370087B96D /* VehicleViewModel.swift */; };
+		543659AD2AACDFEF00D0C318 /* winning.json in Resources */ = {isa = PBXBuildFile; fileRef = 543659AC2AACDFEF00D0C318 /* winning.json */; };
+		543659B02AACE03500D0C318 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 543659AF2AACE03500D0C318 /* Lottie */; };
+		543659B22AACE55200D0C318 /* losing.json in Resources */ = {isa = PBXBuildFile; fileRef = 543659B12AACE55200D0C318 /* losing.json */; };
 		544772CB2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772CA2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift */; };
 		544772D42AAC4BE100DAB004 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772D32AAC4BE100DAB004 /* ConfirmationVC.swift */; };
 		544772D72AAC4E0800DAB004 /* ConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772D52AAC4E0800DAB004 /* ConfirmationCell.swift */; };
@@ -64,6 +67,8 @@
 		54138E192AA97B960087B96D /* VehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
 		54138E1A2AA97B960087B96D /* VehicleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleCell.xib; sourceTree = "<group>"; };
 		54138E1D2AA97F370087B96D /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
+		543659AC2AACDFEF00D0C318 /* winning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = winning.json; sourceTree = "<group>"; };
+		543659B12AACE55200D0C318 /* losing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = losing.json; sourceTree = "<group>"; };
 		544772CA2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSelectedProtocol.swift; sourceTree = "<group>"; };
 		544772D32AAC4BE100DAB004 /* ConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationVC.swift; sourceTree = "<group>"; };
 		544772D52AAC4E0800DAB004 /* ConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCell.swift; sourceTree = "<group>"; };
@@ -117,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				544772EB2AAC893E00DAB004 /* NVActivityIndicatorView in Frameworks */,
+				543659B02AACE03500D0C318 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +155,15 @@
 				544772EC2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		543659AB2AACDFD400D0C318 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				543659AC2AACDFEF00D0C318 /* winning.json */,
+				543659B12AACE55200D0C318 /* losing.json */,
+			);
+			path = LottieFiles;
 			sourceTree = "<group>";
 		};
 		544772C92AAB50AD00DAB004 /* Protocols */ = {
@@ -271,6 +286,7 @@
 		54F105582AA8D490000F3F8B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				543659AB2AACDFD400D0C318 /* LottieFiles */,
 				54F105592AA8D49B000F3F8B /* Fonts */,
 				54F1058F2AA8E1E2000F3F8B /* Networking */,
 				544772C92AAB50AD00DAB004 /* Protocols */,
@@ -413,6 +429,7 @@
 			name = FindingFalcone;
 			packageProductDependencies = (
 				544772EA2AAC893E00DAB004 /* NVActivityIndicatorView */,
+				543659AF2AACE03500D0C318 /* Lottie */,
 			);
 			productName = FindingFalcone;
 			productReference = 5491925D2AA83926005AA0C3 /* FindingFalcone.app */;
@@ -444,6 +461,7 @@
 			mainGroup = 549192542AA83926005AA0C3;
 			packageReferences = (
 				544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				543659AE2AACE03500D0C318 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 5491925E2AA83926005AA0C3 /* Products */;
 			projectDirPath = "";
@@ -468,11 +486,13 @@
 				54F1056E2AA8D4C7000F3F8B /* Roboto-LightItalic.ttf in Resources */,
 				54F105682AA8D4C7000F3F8B /* Roboto-Medium.ttf in Resources */,
 				5491926D2AA83929005AA0C3 /* LaunchScreen.storyboard in Resources */,
+				543659B22AACE55200D0C318 /* losing.json in Resources */,
 				54F105712AA8D4C7000F3F8B /* Roboto-BlackItalic.ttf in Resources */,
 				54F105732AA8D4C7000F3F8B /* Roboto-Thin.ttf in Resources */,
 				54F105692AA8D4C7000F3F8B /* Roboto-Light.ttf in Resources */,
 				54F1056C2AA8D4C7000F3F8B /* Roboto-ThinItalic.ttf in Resources */,
 				54F105812AA8DA27000F3F8B /* PlanetCell.xib in Resources */,
+				543659AD2AACDFEF00D0C318 /* winning.json in Resources */,
 				54F105742AA8D4C7000F3F8B /* Roboto-Black.ttf in Resources */,
 				54F1056B2AA8D4C7000F3F8B /* Roboto-MediumItalic.ttf in Resources */,
 				5491926A2AA83929005AA0C3 /* Assets.xcassets in Resources */,
@@ -663,7 +683,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S32Q2LHV49;
+				DEVELOPMENT_TEAM = R45L778PVK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindingFalcone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Finding Falcone";
@@ -692,7 +712,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S32Q2LHV49;
+				DEVELOPMENT_TEAM = R45L778PVK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindingFalcone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Finding Falcone";
@@ -738,6 +758,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		543659AE2AACE03500D0C318 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
@@ -749,6 +777,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		543659AF2AACE03500D0C318 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 543659AE2AACE03500D0C318 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		544772EA2AAC893E00DAB004 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
