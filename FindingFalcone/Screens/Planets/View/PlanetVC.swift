@@ -13,16 +13,22 @@ class PlanetVC: UIViewController {
     @IBOutlet weak var letsGoButton: UIButton!
     
     var viewModel = PlanetViewModel()
-    var completedPlanetIndex : [Int : String] = [:]
+    var loader = UILoader.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateConfigurations()
     }
     
+    deinit {
+        debugPrint("PlanetVC was deinitilized.")
+    }
+    
     @IBAction func letsGoButtonAction(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        viewModel.mapdata()
+        
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -37,7 +43,7 @@ extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetCell", for: indexPath) as? PlanetCell else {
             return UICollectionViewCell()
         }
-        cell.vehicles = completedPlanetIndex[indexPath.item] ?? ""
+        cell.vehicles = viewModel.indexWithVehicle[indexPath.item] ?? ""
         let planet = viewModel.planets[indexPath.item]
         cell.planets = planet
         return cell
@@ -46,6 +52,7 @@ extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
         vc.delegate = self
+        vc.vehicleUsed = viewModel.indexWithVehicle
         vc.planetIndex = indexPath.row
         vc.planet = viewModel.planets[indexPath.item]
         self.navigationController?.pushViewController(vc, animated: true)
@@ -63,6 +70,9 @@ extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
 extension PlanetVC {
     
     func updateConfigurations() {
+        
+        loader.initializeActivityIndicator(in: self.view)
+        
         let nib = UINib(nibName: "PlanetCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "PlanetCell")
         
@@ -78,11 +88,12 @@ extension PlanetVC {
                 }
                 switch event {
                 case .loading :
-                    debugPrint("Data Started Loading.")
+                    loader.startAnimating()
                 case .dataLoaded :
                     debugPrint("Data Loaded Successfully")
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
                         self.collectionView.reloadData()
+                        self.loader.stopAnimating()
                     }
                 case .error(let err) :
                     debugPrint("Error Occured", err)
@@ -94,8 +105,7 @@ extension PlanetVC {
 extension PlanetVC : VehicleSelectedProtocol {
     
     func didSelectVehicle(planetIndex: Int, vehicleName: String) {
-        completedPlanetIndex.updateValue(vehicleName, forKey: planetIndex)
-//        someArray.map {($0.key, $0.value)}
+        viewModel.indexWithVehicle.updateValue(vehicleName, forKey: planetIndex)
         collectionView.reloadData()
     }
     

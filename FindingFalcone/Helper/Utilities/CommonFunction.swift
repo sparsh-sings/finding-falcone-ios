@@ -28,4 +28,17 @@ class CommonFunction {
         }
     }
     
+    func countOccurrences(dictionary: [Int: String]) -> [String: Int] {
+        var result: [String: Int] = [:]
+
+        for (_, value) in dictionary {
+            if let count = result[value] {
+                result[value] = count + 1
+            } else {
+                result[value] = 1
+            }
+        }
+        return result
+    }
+    
 }

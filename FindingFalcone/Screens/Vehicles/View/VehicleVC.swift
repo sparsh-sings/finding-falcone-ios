@@ -17,6 +17,8 @@ class VehicleVC: UIViewController {
     var selectedIndexPath: Int?
     var planetIndex: Int?
     
+    var vehicleUsed : [Int: String]?
+    
     weak var delegate : VehicleSelectedProtocol?
     
     var viewModel = VehicleViewModel()
@@ -72,7 +74,7 @@ extension VehicleVC {
         collectionView.register(nib, forCellWithReuseIdentifier: "VehicleCell")
         
         updateEvents()
-        self.viewModel.getVehicleData(distance: planet?.distance)
+        self.viewModel.getVehicleData(distance: planet?.distance, usedRocketDict: vehicleUsed ?? [:])
         
         
         guard let planet else { return }
@@ -108,7 +110,6 @@ extension VehicleVC {
             if success {
                 self?.animateCell(collectionView.cellForItem(at: indexPath) as? VehicleCell ?? VehicleCell() )
                 self?.selectedIndexPath = indexPath.item
-//                collectionView.reloadData()
             }
         }
     }
@@ -118,7 +119,7 @@ extension VehicleVC {
             cell.vehicleImage.center = CGPoint(x: cell.vehicleImage.center.x, y: -self.view.frame.size.height)
         }) { (completed) in
             if completed {
-                self.delegate?.didSelectVehicle(planetIndex: self.planetIndex ?? 0, vehicleName: cell.vehicleName.text?.lowercased().replacingOccurrences(of: " ", with: "") ?? "")
+                self.delegate?.didSelectVehicle(planetIndex: self.planetIndex ?? 0, vehicleName: cell.vehicleName.text ?? "")
                 self.navigationController?.popViewController(animated: true)
             }
         }

@@ -21,6 +21,8 @@
 		544772E22AAC6F6000DAB004 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E12AAC6F6000DAB004 /* Status.swift */; };
 		544772E42AAC6F7200DAB004 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E32AAC6F7200DAB004 /* ResultViewModel.swift */; };
 		544772E82AAC708300DAB004 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E72AAC708300DAB004 /* ResultVC.swift */; };
+		544772EB2AAC893E00DAB004 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 544772EA2AAC893E00DAB004 /* NVActivityIndicatorView */; };
+		544772ED2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772EC2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift */; };
 		544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DB8992AA9C1C50026A676 /* CommonFunction.swift */; };
 		549192612AA83926005AA0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192602AA83926005AA0C3 /* AppDelegate.swift */; };
 		549192632AA83926005AA0C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192622AA83926005AA0C3 /* SceneDelegate.swift */; };
@@ -71,6 +73,7 @@
 		544772E12AAC6F6000DAB004 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		544772E32AAC6F7200DAB004 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		544772E72AAC708300DAB004 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		544772EC2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loader+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		544DB8992AA9C1C50026A676 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		5491925D2AA83926005AA0C3 /* FindingFalcone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindingFalcone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549192602AA83926005AA0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544772EB2AAC893E00DAB004 /* NVActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +146,7 @@
 			children = (
 				54138E152AA974030087B96D /* Constant.swift */,
 				544DB8992AA9C1C50026A676 /* CommonFunction.swift */,
+				544772EC2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -406,6 +411,9 @@
 			dependencies = (
 			);
 			name = FindingFalcone;
+			packageProductDependencies = (
+				544772EA2AAC893E00DAB004 /* NVActivityIndicatorView */,
+			);
 			productName = FindingFalcone;
 			productReference = 5491925D2AA83926005AA0C3 /* FindingFalcone.app */;
 			productType = "com.apple.product-type.application";
@@ -434,6 +442,9 @@
 				Base,
 			);
 			mainGroup = 549192542AA83926005AA0C3;
+			packageReferences = (
+				544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = 5491925E2AA83926005AA0C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,6 +504,7 @@
 				544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */,
 				544772D42AAC4BE100DAB004 /* ConfirmationVC.swift in Sources */,
 				54F1058E2AA8DBF9000F3F8B /* UITextView+Extensions.swift in Sources */,
+				544772ED2AAC896200DAB004 /* Loader+NVActivityIndicatorView.swift in Sources */,
 				54F1058D2AA8DBF9000F3F8B /* UIImage+Extensions.swift in Sources */,
 				54F1057D2AA8D844000F3F8B /* PlanetVC.swift in Sources */,
 				54138E182AA976B10087B96D /* Vehicle.swift in Sources */,
@@ -724,6 +736,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		544772EA2AAC893E00DAB004 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 544772E92AAC893E00DAB004 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 549192552AA83926005AA0C3 /* Project object */;
 }

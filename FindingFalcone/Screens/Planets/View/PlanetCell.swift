@@ -22,7 +22,7 @@ class PlanetCell: UICollectionViewCell {
     
     var vehicles: String? {
         didSet {
-            vehicleImage.image = UIImage(named: vehicles ?? "")
+            vehicleImage.image = UIImage(named: vehicles?.lowercased().replacingOccurrences(of: " ", with: "") ?? "")
         }
     }
     

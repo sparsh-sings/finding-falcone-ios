@@ -9,7 +9,8 @@ import Foundation
 
 struct Vehicle: Codable {
     let name: String?
-    let totalNo, maxDistance, speed: Int?
+    let maxDistance, speed: Int?
+    var totalNo: Int?
 
     enum CodingKeys: String, CodingKey {
         case name

@@ -10,6 +10,9 @@ import Foundation
 class PlanetViewModel {
     
     var planets : Planet = []
+    var indexWithVehicle : [Int : String] = [:]
+    var mappedRocketDict = [String: String]()
+    
     var eventHandler : ((_ event : Events) -> Void)?
     
     func getPlanetList() {
@@ -21,6 +24,39 @@ class PlanetViewModel {
             self.eventHandler?(.error(error))
         }))
         
+    }
+    
+//    func itireateData() {
+//
+//        planetNames.removeAll()
+//        vehicleNames.removeAll()
+//
+//        print(completedPlanetIndex)
+//
+//        for (planetName, vehicleName) in completedPlanetIndex {
+//            planetNames.append(planetName)
+//            vehicleNames.append(vehicleName)
+//        }
+//
+//        debugPrint(planetNames)
+//        debugPrint(vehicleNames)
+//
+//        mapdata()
+//    }
+    
+    func mapdata() {
+        let keyToPlanetMapping: [Int: String] = Dictionary(uniqueKeysWithValues: planets.enumerated().map { (index, planetDict) in
+            let planetName = planets[index].name!
+            return (index, planetName)
+        })
+
+        for (key, rocketName) in indexWithVehicle {
+            if let planetName = keyToPlanetMapping[key] {
+                mappedRocketDict[planetName] = rocketName
+            }
+        }
+        
+        debugPrint(mappedRocketDict)
     }
     
 }
