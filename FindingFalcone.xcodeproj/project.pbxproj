@@ -12,6 +12,15 @@
 		54138E1B2AA97B960087B96D /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E192AA97B960087B96D /* VehicleCell.swift */; };
 		54138E1C2AA97B960087B96D /* VehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54138E1A2AA97B960087B96D /* VehicleCell.xib */; };
 		54138E1E2AA97F370087B96D /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54138E1D2AA97F370087B96D /* VehicleViewModel.swift */; };
+		544772CB2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772CA2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift */; };
+		544772D42AAC4BE100DAB004 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772D32AAC4BE100DAB004 /* ConfirmationVC.swift */; };
+		544772D72AAC4E0800DAB004 /* ConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772D52AAC4E0800DAB004 /* ConfirmationCell.swift */; };
+		544772D82AAC4E0800DAB004 /* ConfirmationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544772D62AAC4E0800DAB004 /* ConfirmationCell.xib */; };
+		544772DA2AAC5F4600DAB004 /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772D92AAC5F4600DAB004 /* ConfirmationViewModel.swift */; };
+		544772DC2AAC602B00DAB004 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772DB2AAC602B00DAB004 /* Token.swift */; };
+		544772E22AAC6F6000DAB004 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E12AAC6F6000DAB004 /* Status.swift */; };
+		544772E42AAC6F7200DAB004 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E32AAC6F7200DAB004 /* ResultViewModel.swift */; };
+		544772E82AAC708300DAB004 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544772E72AAC708300DAB004 /* ResultVC.swift */; };
 		544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DB8992AA9C1C50026A676 /* CommonFunction.swift */; };
 		549192612AA83926005AA0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192602AA83926005AA0C3 /* AppDelegate.swift */; };
 		549192632AA83926005AA0C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549192622AA83926005AA0C3 /* SceneDelegate.swift */; };
@@ -53,6 +62,15 @@
 		54138E192AA97B960087B96D /* VehicleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
 		54138E1A2AA97B960087B96D /* VehicleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleCell.xib; sourceTree = "<group>"; };
 		54138E1D2AA97F370087B96D /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
+		544772CA2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSelectedProtocol.swift; sourceTree = "<group>"; };
+		544772D32AAC4BE100DAB004 /* ConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationVC.swift; sourceTree = "<group>"; };
+		544772D52AAC4E0800DAB004 /* ConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCell.swift; sourceTree = "<group>"; };
+		544772D62AAC4E0800DAB004 /* ConfirmationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationCell.xib; sourceTree = "<group>"; };
+		544772D92AAC5F4600DAB004 /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		544772DB2AAC602B00DAB004 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		544772E12AAC6F6000DAB004 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		544772E32AAC6F7200DAB004 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		544772E72AAC708300DAB004 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 		544DB8992AA9C1C50026A676 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		5491925D2AA83926005AA0C3 /* FindingFalcone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindingFalcone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549192602AA83926005AA0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +146,84 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		544772C92AAB50AD00DAB004 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				544772CA2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		544772CC2AAC4A9700DAB004 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				544772D22AAC4BB600DAB004 /* Model */,
+				544772D12AAC4BAE00DAB004 /* View */,
+				544772D02AAC4BA700DAB004 /* ViewModel */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		544772D02AAC4BA700DAB004 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				544772D92AAC5F4600DAB004 /* ConfirmationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		544772D12AAC4BAE00DAB004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				544772D32AAC4BE100DAB004 /* ConfirmationVC.swift */,
+				544772D52AAC4E0800DAB004 /* ConfirmationCell.swift */,
+				544772D62AAC4E0800DAB004 /* ConfirmationCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		544772D22AAC4BB600DAB004 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				544772DB2AAC602B00DAB004 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		544772DD2AAC6EE500DAB004 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				544772E02AAC6F2D00DAB004 /* Model */,
+				544772DF2AAC6F2800DAB004 /* View */,
+				544772DE2AAC6F2300DAB004 /* ViewModel */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		544772DE2AAC6F2300DAB004 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				544772E32AAC6F7200DAB004 /* ResultViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		544772DF2AAC6F2800DAB004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				544772E72AAC708300DAB004 /* ResultVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		544772E02AAC6F2D00DAB004 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				544772E12AAC6F6000DAB004 /* Status.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		549192542AA83926005AA0C3 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +268,7 @@
 			children = (
 				54F105592AA8D49B000F3F8B /* Fonts */,
 				54F1058F2AA8E1E2000F3F8B /* Networking */,
+				544772C92AAB50AD00DAB004 /* Protocols */,
 				54F105822AA8DBF9000F3F8B /* UI+Extensions */,
 				54138E142AA973F30087B96D /* Utilities */,
 			);
@@ -209,8 +306,10 @@
 		54F105752AA8D6AB000F3F8B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				54F105A72AA8F539000F3F8B /* Vehicles */,
 				54F105762AA8D6B9000F3F8B /* Planets */,
+				54F105A72AA8F539000F3F8B /* Vehicles */,
+				544772CC2AAC4A9700DAB004 /* Confirmation */,
+				544772DD2AAC6EE500DAB004 /* Result */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -354,6 +453,7 @@
 				54F105702AA8D4C7000F3F8B /* LICENSE.txt in Resources */,
 				54F1056D2AA8D4C7000F3F8B /* Roboto-BoldItalic.ttf in Resources */,
 				54F1056A2AA8D4C7000F3F8B /* Roboto-Regular.ttf in Resources */,
+				544772D82AAC4E0800DAB004 /* ConfirmationCell.xib in Resources */,
 				54F1056E2AA8D4C7000F3F8B /* Roboto-LightItalic.ttf in Resources */,
 				54F105682AA8D4C7000F3F8B /* Roboto-Medium.ttf in Resources */,
 				5491926D2AA83929005AA0C3 /* LaunchScreen.storyboard in Resources */,
@@ -378,25 +478,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F105972AA8E327000F3F8B /* PlanetViewModel.swift in Sources */,
+				544772DC2AAC602B00DAB004 /* Token.swift in Sources */,
 				54F1057B2AA8D7FE000F3F8B /* Planet.swift in Sources */,
 				54138E1E2AA97F370087B96D /* VehicleViewModel.swift in Sources */,
+				544772DA2AAC5F4600DAB004 /* ConfirmationViewModel.swift in Sources */,
 				54F105932AA8E295000F3F8B /* Reach.swift in Sources */,
 				54138E162AA974030087B96D /* Constant.swift in Sources */,
 				54F105912AA8E24A000F3F8B /* NetworkClass.swift in Sources */,
 				54F105802AA8DA27000F3F8B /* PlanetCell.swift in Sources */,
+				544772E22AAC6F6000DAB004 /* Status.swift in Sources */,
 				54138E1B2AA97B960087B96D /* VehicleCell.swift in Sources */,
 				549192612AA83926005AA0C3 /* AppDelegate.swift in Sources */,
 				54F105892AA8DBF9000F3F8B /* UIButton+Extensions.swift in Sources */,
 				544DB89A2AA9C1C50026A676 /* CommonFunction.swift in Sources */,
+				544772D42AAC4BE100DAB004 /* ConfirmationVC.swift in Sources */,
 				54F1058E2AA8DBF9000F3F8B /* UITextView+Extensions.swift in Sources */,
 				54F1058D2AA8DBF9000F3F8B /* UIImage+Extensions.swift in Sources */,
 				54F1057D2AA8D844000F3F8B /* PlanetVC.swift in Sources */,
 				54138E182AA976B10087B96D /* Vehicle.swift in Sources */,
+				544772E42AAC6F7200DAB004 /* ResultViewModel.swift in Sources */,
+				544772CB2AAB50BE00DAB004 /* VehicleSelectedProtocol.swift in Sources */,
 				54F105952AA8E2C1000F3F8B /* Callback.swift in Sources */,
 				54F1058A2AA8DBF9000F3F8B /* UIView+Extensions.swift in Sources */,
 				54F105B02AA8F5BF000F3F8B /* VehicleVC.swift in Sources */,
 				549192632AA83926005AA0C3 /* SceneDelegate.swift in Sources */,
+				544772E82AAC708300DAB004 /* ResultVC.swift in Sources */,
 				54F1058B2AA8DBF9000F3F8B /* TextField+Extensions.swift in Sources */,
+				544772D72AAC4E0800DAB004 /* ConfirmationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

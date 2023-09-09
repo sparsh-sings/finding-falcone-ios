@@ -15,12 +15,15 @@ class VehicleVC: UIViewController {
     
     var planet : PlanetElement?
     var selectedIndexPath: Int?
+    var planetIndex: Int?
+    
+    weak var delegate : VehicleSelectedProtocol?
     
     var viewModel = VehicleViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        
         
     }
     
@@ -33,6 +36,9 @@ class VehicleVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    deinit {
+        debugPrint("The View Controller is Deinitilized.")
+    }
     
 }
 
@@ -100,49 +106,20 @@ extension VehicleVC {
         let message = "Are you sure you want to select this vehicle to search for Princess"
         CommonFunction.shared.showAlert(title: title, message: message) { [weak self] success in
             if success {
-                self?.selectedIndexPath = indexPath.item
-                collectionView.reloadData()
-            } else {
                 self?.animateCell(collectionView.cellForItem(at: indexPath) as? VehicleCell ?? VehicleCell() )
+                self?.selectedIndexPath = indexPath.item
+//                collectionView.reloadData()
             }
         }
     }
     
     func animateCell(_ cell: VehicleCell) {
         UIView.animate(withDuration: 2.0, animations: {
-            // Animation 1: Rotate the image 180 degrees
-            cell.vehicleImage.transform = CGAffineTransform(rotationAngle: .pi)
+            cell.vehicleImage.center = CGPoint(x: cell.vehicleImage.center.x, y: -self.view.frame.size.height)
         }) { (completed) in
             if completed {
-                // Animation 1 completed
-                
-                UIView.animate(withDuration: 2.0, animations: {
-                    // Animation 2: Move the image to the center of the screen
-                    cell.vehicleImage.center = CGPoint(x: self.view.frame.width/2 , y: self.view.frame.height/2 )
-                }) { (completed) in
-                    if completed {
-                        // Animation 2 completed
-                        
-                        UIView.animate(withDuration: 2.0, animations: {
-                            // Animation 3: Rotate the image 90 degrees to the left
-                            cell.vehicleImage.transform = CGAffineTransform(rotationAngle: -.pi / 4.0)
-                        }) { (completed) in
-                            if completed {
-                                // Animation 3 completed
-                                
-                                UIView.animate(withDuration: 2.0, animations: {
-                                    // Animation 4: Move the image out of the screen
-                                    cell.vehicleImage.center = CGPoint(x: -self.planetImage.frame.size.width, y: self.planetImage.center.y)
-                                }) { (completed) in
-                                    if completed {
-                                        // Animation 4 completed
-                                        self.navigationController?.popViewController(animated: true)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                self.delegate?.didSelectVehicle(planetIndex: self.planetIndex ?? 0, vehicleName: cell.vehicleName.text?.lowercased().replacingOccurrences(of: " ", with: "") ?? "")
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

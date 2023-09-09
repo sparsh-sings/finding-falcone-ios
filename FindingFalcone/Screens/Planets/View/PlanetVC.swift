@@ -10,11 +10,19 @@ import UIKit
 class PlanetVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var letsGoButton: UIButton!
+    
     var viewModel = PlanetViewModel()
+    var completedPlanetIndex : [Int : String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateConfigurations()
+    }
+    
+    @IBAction func letsGoButtonAction(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -29,9 +37,18 @@ extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetCell", for: indexPath) as? PlanetCell else {
             return UICollectionViewCell()
         }
+        cell.vehicles = completedPlanetIndex[indexPath.item] ?? ""
         let planet = viewModel.planets[indexPath.item]
         cell.planets = planet
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
+        vc.delegate = self
+        vc.planetIndex = indexPath.row
+        vc.planet = viewModel.planets[indexPath.item]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -74,3 +91,12 @@ extension PlanetVC {
         }
 }
 
+extension PlanetVC : VehicleSelectedProtocol {
+    
+    func didSelectVehicle(planetIndex: Int, vehicleName: String) {
+        completedPlanetIndex.updateValue(vehicleName, forKey: planetIndex)
+//        someArray.map {($0.key, $0.value)}
+        collectionView.reloadData()
+    }
+    
+}

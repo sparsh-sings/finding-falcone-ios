@@ -20,6 +20,12 @@ class PlanetCell: UICollectionViewCell {
         }
     }
     
+    var vehicles: String? {
+        didSet {
+            vehicleImage.image = UIImage(named: vehicles ?? "")
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

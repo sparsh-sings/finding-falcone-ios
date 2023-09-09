@@ -45,7 +45,7 @@ final class NetworkClass {
         }
 
         if method.rawValue == "POST" || method.rawValue == "PUT" {
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
 
         } else {

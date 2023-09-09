@@ -29,21 +29,32 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epf-AJ-R68" customClass="SSView" customModule="FindingFalcone" customModuleProvider="target">
                         <rect key="frame" x="30" y="30" width="170" height="200"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starynight" translatesAutoresizingMaskIntoConstraints="NO" id="PBv-jN-1md" customClass="SSImage" customModule="FindingFalcone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="170" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="N03-h3-PKe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yPy-F1-whT">
-                                <rect key="frame" x="45" y="20" width="80" height="80"/>
+                                <rect key="frame" x="45" y="15" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="2bW-bT-j63"/>
                                     <constraint firstAttribute="width" constant="80" id="GgW-89-emB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xis-jy-VYG">
-                                <rect key="frame" x="20" y="115" width="130" height="21.333333333333343"/>
+                                <rect key="frame" x="20" y="124.99999999999999" width="130" height="21.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coH-2c-ksK">
-                                <rect key="frame" x="20" y="146.33333333333334" width="130" height="16.666666666666657"/>
+                                <rect key="frame" x="20" y="151.33333333333334" width="130" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -52,12 +63,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="coH-2c-ksK" firstAttribute="leading" secondItem="epf-AJ-R68" secondAttribute="leading" constant="20" id="0II-aw-xIA"/>
-                            <constraint firstItem="yPy-F1-whT" firstAttribute="top" secondItem="epf-AJ-R68" secondAttribute="top" constant="20" id="80h-th-5va"/>
+                            <constraint firstItem="yPy-F1-whT" firstAttribute="top" secondItem="epf-AJ-R68" secondAttribute="top" constant="15" id="80h-th-5va"/>
+                            <constraint firstAttribute="trailing" secondItem="PBv-jN-1md" secondAttribute="trailing" id="Dpk-27-oFQ"/>
                             <constraint firstAttribute="trailing" secondItem="xis-jy-VYG" secondAttribute="trailing" constant="20" id="Epc-GM-blk"/>
+                            <constraint firstItem="xis-jy-VYG" firstAttribute="top" secondItem="PBv-jN-1md" secondAttribute="bottom" constant="15" id="FO8-sg-JDV"/>
                             <constraint firstItem="yPy-F1-whT" firstAttribute="centerX" secondItem="epf-AJ-R68" secondAttribute="centerX" id="TWe-xz-8cG"/>
-                            <constraint firstItem="xis-jy-VYG" firstAttribute="top" secondItem="yPy-F1-whT" secondAttribute="bottom" constant="15" id="Zcj-qP-l5t"/>
+                            <constraint firstItem="PBv-jN-1md" firstAttribute="top" secondItem="epf-AJ-R68" secondAttribute="top" id="X5f-S8-qqI"/>
+                            <constraint firstItem="PBv-jN-1md" firstAttribute="leading" secondItem="epf-AJ-R68" secondAttribute="leading" id="YVA-xu-Ucg"/>
                             <constraint firstAttribute="trailing" secondItem="coH-2c-ksK" secondAttribute="trailing" constant="20" id="g4b-Cb-qOn"/>
-                            <constraint firstItem="coH-2c-ksK" firstAttribute="top" secondItem="xis-jy-VYG" secondAttribute="bottom" constant="10" id="lDt-7P-SfG"/>
+                            <constraint firstItem="coH-2c-ksK" firstAttribute="top" secondItem="xis-jy-VYG" secondAttribute="bottom" constant="5" id="lDt-7P-SfG"/>
                             <constraint firstItem="xis-jy-VYG" firstAttribute="leading" secondItem="epf-AJ-R68" secondAttribute="leading" constant="20" id="oZc-xW-aAc"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -109,6 +123,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="starynight" width="1150" height="864"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

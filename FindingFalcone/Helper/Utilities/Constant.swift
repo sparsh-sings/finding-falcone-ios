@@ -12,5 +12,6 @@ class Constant {
     static let base_url = "https://findfalcone.geektrust.com/"
     static let planets = "planets"
     static let vehicles = "vehicles"
+    static let token = "token"
     
 }
