@@ -44,6 +44,23 @@ class ResultViewModel {
         }
     }
     
+    func finalMessage(_ result : ResultType, _ viewControlelr : UIViewController) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+            var message = ""
+            
+            if result == .win {
+                message = "You Won, Let's Play this again."
+            } else {
+                message = "There is always a next time."
+            }
+            
+            CommonFunction.shared.showAlertWithOkAction(title: "Finding Falcone", message: message) { buttonIndex in
+                viewControlelr.navigationController?.popToRootViewController(animated: true)
+            }
+            
+        }
+    }
+    
 }
 
 extension ResultViewModel {
@@ -60,18 +77,19 @@ extension ResultViewModel {
 
 extension ResultViewModel {
     
-    func showAnnimation(view: UIView, type : ResultType, completion: @escaping() -> Void) {
+    func showAnnimation(view: UIView, type : ResultType, completion: @escaping(ResultType) -> Void) {
         view.addSubview(lottieAnimationView)
         if type == .win {
             lottieAnimationView.animation = LottieAnimation.named("winning")
+            completion(.win)
         } else {
             lottieAnimationView.animation = LottieAnimation.named("losing")
+            completion(.lose)
         }
         lottieAnimationView.frame = view.bounds
         lottieAnimationView.contentMode = .scaleAspectFit
         lottieAnimationView.loopMode = .loop
         lottieAnimationView.play()
-        completion()
     }
     
 }

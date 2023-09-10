@@ -9,6 +9,8 @@ import Foundation
 
 class Constant {
     
+    static let App_Name = "Finding Falcone"
+    
     static let base_url = "https://findfalcone.geektrust.com/"
     static let planets = "planets"
     static let vehicles = "vehicles"

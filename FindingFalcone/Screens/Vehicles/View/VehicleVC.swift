@@ -97,7 +97,7 @@ extension VehicleVC {
                     self.collectionView.reloadData()
                 }
             case .error(let err) :
-                debugPrint("Error Occured", err)
+                CommonFunction.shared.showApiError(err, viewController: self)
             }
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z3i-Wc-OPN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iid-gv-L7g">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,6 +16,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--POTENTIAL HIDEOUTS-->
@@ -27,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-Ps-AHb">
-                                <rect key="frame" x="0.0" y="126" width="375" height="577"/>
+                                <rect key="frame" x="0.0" y="126" width="375" height="567"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="33Y-dq-SEo">
                                     <size key="itemSize" width="128" height="128"/>
@@ -48,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJe-0Q-0xn" customClass="SSButton" customModule="FindingFalcone" customModuleProvider="target">
-                                <rect key="frame" x="20" y="733" width="335" height="45"/>
+                                <rect key="frame" x="20" y="723" width="335" height="45"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Z7V-6Y-6e2"/>
@@ -64,7 +67,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="letsGoButtonAction:" destination="ZPb-Wh-IYp" eventType="touchUpInside" id="JwT-uv-7kL"/>
+                                    <action selector="letsGoButtonAction:" destination="ZPb-Wh-IYp" eventType="touchUpInside" id="k19-68-xi8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-pq-4Yl">
+                                <rect key="frame" x="330" y="70.666666666666671" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="CBM-7W-vS9"/>
+                                    <constraint firstAttribute="height" constant="25" id="teL-Bf-Bu0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="helpButtonAction:" destination="ZPb-Wh-IYp" eventType="touchUpInside" id="om3-dG-0bg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,25 +88,99 @@
                         <constraints>
                             <constraint firstItem="BZV-1h-RpV" firstAttribute="top" secondItem="0h0-JM-89u" secondAttribute="top" constant="20" id="2vt-yl-O1b"/>
                             <constraint firstItem="0h0-JM-89u" firstAttribute="trailing" secondItem="BZV-1h-RpV" secondAttribute="trailing" constant="20" id="3Ol-Ig-AfF"/>
-                            <constraint firstItem="0h0-JM-89u" firstAttribute="bottom" secondItem="oJe-0Q-0xn" secondAttribute="bottom" id="C6f-mW-Ao7"/>
+                            <constraint firstItem="0h0-JM-89u" firstAttribute="bottom" secondItem="oJe-0Q-0xn" secondAttribute="bottom" constant="10" id="C6f-mW-Ao7"/>
                             <constraint firstItem="0h0-JM-89u" firstAttribute="trailing" secondItem="9k2-Ps-AHb" secondAttribute="trailing" id="Gnt-lS-6QQ"/>
                             <constraint firstItem="oJe-0Q-0xn" firstAttribute="top" secondItem="9k2-Ps-AHb" secondAttribute="bottom" constant="30" id="Pdl-H7-Au0"/>
                             <constraint firstItem="9k2-Ps-AHb" firstAttribute="leading" secondItem="0h0-JM-89u" secondAttribute="leading" id="VzP-68-8XB"/>
+                            <constraint firstItem="f2M-pq-4Yl" firstAttribute="centerY" secondItem="BZV-1h-RpV" secondAttribute="centerY" id="ZzD-3c-gjf"/>
                             <constraint firstItem="9k2-Ps-AHb" firstAttribute="top" secondItem="BZV-1h-RpV" secondAttribute="bottom" constant="30" id="cqa-gX-QyE"/>
                             <constraint firstItem="oJe-0Q-0xn" firstAttribute="leading" secondItem="0h0-JM-89u" secondAttribute="leading" constant="20" id="hdO-zI-QrN"/>
                             <constraint firstItem="BZV-1h-RpV" firstAttribute="leading" secondItem="0h0-JM-89u" secondAttribute="leading" constant="20" id="sSl-1H-fo8"/>
                             <constraint firstItem="0h0-JM-89u" firstAttribute="trailing" secondItem="oJe-0Q-0xn" secondAttribute="trailing" constant="20" id="uLg-kx-Iuc"/>
+                            <constraint firstItem="0h0-JM-89u" firstAttribute="trailing" secondItem="f2M-pq-4Yl" secondAttribute="trailing" constant="20" id="vTm-kP-sPI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="POTENTIAL HIDEOUTS" id="bYu-di-wH5"/>
                     <connections>
                         <outlet property="collectionView" destination="9k2-Ps-AHb" id="e0K-fQ-8CF"/>
-                        <outlet property="letsGoButton" destination="oJe-0Q-0xn" id="OY4-RS-WK1"/>
+                        <outlet property="letsGoButton" destination="oJe-0Q-0xn" id="iCl-G2-6B5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Vc-Wm-k5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.4503816793892" y="-91.549295774647888"/>
+            <point key="canvasLocation" x="2152.8000000000002" y="-91.625615763546804"/>
+        </scene>
+        <!--InstructionVC-->
+        <scene sceneID="vjR-rO-kWK">
+            <objects>
+                <viewController storyboardIdentifier="InstructionVC" id="UfG-EO-xE8" customClass="InstructionVC" customModule="FindingFalcone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7rF-Wa-74e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsz-4Z-Srm" customClass="SSView" customModule="FindingFalcone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="512" width="375" height="300"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBp-Os-2cc">
+                                        <rect key="frame" x="20" y="20" width="335" height="161"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Instructions  1. Select 4 planets to search (out of the total 6). 
+2. Select which space vehicles to send to these planets and then continue to check if your search was successful.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlT-fw-43D" customClass="SSButton" customModule="FindingFalcone" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="201" width="335" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="I4J-Wc-hPL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Dismiss">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dismissButtonAction:" destination="UfG-EO-xE8" eventType="touchUpInside" id="h52-sM-wW9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HlT-fw-43D" firstAttribute="top" secondItem="YBp-Os-2cc" secondAttribute="bottom" constant="20" id="6l1-2c-Lwq"/>
+                                    <constraint firstAttribute="height" constant="300" id="8dV-XN-tem"/>
+                                    <constraint firstItem="YBp-Os-2cc" firstAttribute="leading" secondItem="rsz-4Z-Srm" secondAttribute="leading" constant="20" id="Nfn-bV-LPq"/>
+                                    <constraint firstAttribute="trailing" secondItem="YBp-Os-2cc" secondAttribute="trailing" constant="20" id="Rfu-V1-k3s"/>
+                                    <constraint firstItem="HlT-fw-43D" firstAttribute="leading" secondItem="rsz-4Z-Srm" secondAttribute="leading" constant="20" id="bHB-8D-imz"/>
+                                    <constraint firstAttribute="trailing" secondItem="HlT-fw-43D" secondAttribute="trailing" constant="20" id="c0F-OD-9wS"/>
+                                    <constraint firstItem="YBp-Os-2cc" firstAttribute="top" secondItem="rsz-4Z-Srm" secondAttribute="top" constant="20" id="ida-by-9qw"/>
+                                    <constraint firstAttribute="bottom" secondItem="HlT-fw-43D" secondAttribute="bottom" constant="54" id="leg-8T-TcR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ab0-iA-6Cf"/>
+                        <color key="backgroundColor" white="0.23000000000000001" alpha="0.68999999999999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ab0-iA-6Cf" firstAttribute="trailing" secondItem="rsz-4Z-Srm" secondAttribute="trailing" id="i4X-EY-irG"/>
+                            <constraint firstAttribute="bottom" secondItem="rsz-4Z-Srm" secondAttribute="bottom" id="qLA-ni-o7c"/>
+                            <constraint firstItem="rsz-4Z-Srm" firstAttribute="leading" secondItem="Ab0-iA-6Cf" secondAttribute="leading" id="szt-Bf-sgI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVX-Uz-jNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="603.69458128078816"/>
         </scene>
         <!--VehicleVC-->
         <scene sceneID="g3y-3O-N3O">
@@ -188,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ef0-1b-3In" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2236.9230769230767" y="-92.417061611374407"/>
+            <point key="canvasLocation" x="3178.4000000000001" y="-93.103448275862078"/>
         </scene>
         <!--ConfirmationVC-->
         <scene sceneID="bWG-n7-IyV">
@@ -199,13 +288,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You All Set ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wg-py-oxp">
-                                <rect key="frame" x="20" y="70" width="335" height="25.666666666666671"/>
+                                <rect key="frame" x="20" y="70" width="335" height="26"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GYC-D3-jQl">
-                                <rect key="frame" x="0.0" y="125.66666666666669" width="375" height="572.33333333333326"/>
+                                <rect key="frame" x="0.0" y="126" width="375" height="562"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Az2-9X-1j1" id="MVU-AJ-AdT"/>
@@ -213,7 +302,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fse-Gz-tf3">
-                                <rect key="frame" x="20" y="728" width="335" height="50"/>
+                                <rect key="frame" x="20" y="718" width="335" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHO-XC-jCk" customClass="SSButton" customModule="FindingFalcone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="50"/>
@@ -258,11 +347,11 @@
                         <viewLayoutGuide key="safeArea" id="J5l-gM-Vkf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="J5l-gM-Vkf" firstAttribute="bottom" secondItem="Fse-Gz-tf3" secondAttribute="bottom" constant="10" id="7om-jc-k3l"/>
                             <constraint firstItem="0Wg-py-oxp" firstAttribute="top" secondItem="J5l-gM-Vkf" secondAttribute="top" constant="20" id="9hS-ol-QL8"/>
                             <constraint firstItem="Fse-Gz-tf3" firstAttribute="leading" secondItem="J5l-gM-Vkf" secondAttribute="leading" constant="20" id="BgP-Py-EgQ"/>
                             <constraint firstItem="GYC-D3-jQl" firstAttribute="leading" secondItem="J5l-gM-Vkf" secondAttribute="leading" id="BvL-We-kOj"/>
                             <constraint firstItem="J5l-gM-Vkf" firstAttribute="trailing" secondItem="GYC-D3-jQl" secondAttribute="trailing" id="Hb0-No-ldQ"/>
-                            <constraint firstItem="Fse-Gz-tf3" firstAttribute="bottom" secondItem="J5l-gM-Vkf" secondAttribute="bottom" id="V6T-2O-lKT"/>
                             <constraint firstItem="Fse-Gz-tf3" firstAttribute="top" secondItem="GYC-D3-jQl" secondAttribute="bottom" constant="30" id="cDP-XN-ILm"/>
                             <constraint firstItem="J5l-gM-Vkf" firstAttribute="trailing" secondItem="Fse-Gz-tf3" secondAttribute="trailing" constant="20" id="dAe-EL-4Ei"/>
                             <constraint firstItem="GYC-D3-jQl" firstAttribute="top" secondItem="0Wg-py-oxp" secondAttribute="bottom" constant="30" id="kht-XE-nDn"/>
@@ -276,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvr-Vp-LaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="-93"/>
+            <point key="canvasLocation" x="4114.3999999999996" y="-93.103448275862078"/>
         </scene>
         <!--ResultVC-->
         <scene sceneID="iXD-dL-180">
@@ -293,62 +382,153 @@
                                     <constraint firstAttribute="height" constant="150" id="htq-f6-Jal"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aab-bc-Fnt">
+                                <rect key="frame" x="40" y="90" width="295" height="276"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0r-yv-RFB">
+                                <rect key="frame" x="20" y="406" width="335" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A37-uu-8mf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="R0r-yv-RFB" firstAttribute="leading" secondItem="A37-uu-8mf" secondAttribute="leading" constant="20" id="7yw-kZ-duB"/>
+                            <constraint firstItem="R0r-yv-RFB" firstAttribute="centerY" secondItem="YQu-Ye-630" secondAttribute="centerY" id="B9V-bW-9GS"/>
+                            <constraint firstItem="aab-bc-Fnt" firstAttribute="leading" secondItem="A37-uu-8mf" secondAttribute="leading" constant="40" id="M4z-3r-h6m"/>
+                            <constraint firstItem="R0r-yv-RFB" firstAttribute="top" secondItem="aab-bc-Fnt" secondAttribute="bottom" constant="40" id="RFX-ip-ggk"/>
+                            <constraint firstItem="A37-uu-8mf" firstAttribute="trailing" secondItem="R0r-yv-RFB" secondAttribute="trailing" constant="20" id="Z1v-yU-sVS"/>
+                            <constraint firstItem="A37-uu-8mf" firstAttribute="trailing" secondItem="aab-bc-Fnt" secondAttribute="trailing" constant="40" id="bri-JW-A4Q"/>
                             <constraint firstItem="A37-uu-8mf" firstAttribute="bottom" secondItem="VXg-RO-f6g" secondAttribute="bottom" id="g23-Bo-3dv"/>
                             <constraint firstItem="A37-uu-8mf" firstAttribute="trailing" secondItem="VXg-RO-f6g" secondAttribute="trailing" id="nB0-G2-Wzl"/>
+                            <constraint firstItem="aab-bc-Fnt" firstAttribute="top" secondItem="A37-uu-8mf" secondAttribute="top" constant="40" id="oTY-ek-FmD"/>
                             <constraint firstItem="VXg-RO-f6g" firstAttribute="leading" secondItem="A37-uu-8mf" secondAttribute="leading" id="u7q-KH-6Pz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="annimationView" destination="VXg-RO-f6g" id="yX9-bK-3Mp"/>
+                        <outlet property="planetImage" destination="aab-bc-Fnt" id="mj6-M1-hsv"/>
+                        <outlet property="statusLabel" destination="R0r-yv-RFB" id="dKA-zR-eu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eim-rM-1er" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4054" y="-92"/>
+            <point key="canvasLocation" x="4996" y="-92.364532019704441"/>
+        </scene>
+        <!--StartVC-->
+        <scene sceneID="mzF-mu-MdS">
+            <objects>
+                <viewController storyboardIdentifier="StartVC" id="uOi-SB-Hgz" customClass="StartVC" customModule="FindingFalcone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xl2-pz-xc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvz-XU-sqP" customClass="SSButton" customModule="FindingFalcone" customModuleProvider="target">
+                                <rect key="frame" x="20" y="723" width="335" height="45"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gKw-GV-1iK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startButtonAction:" destination="uOi-SB-Hgz" eventType="touchUpInside" id="ZgM-15-2NB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finding Falcone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgX-ak-Jgg">
+                                <rect key="frame" x="20" y="70" width="335" height="26"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVN-iX-FbC">
+                                <rect key="frame" x="10" y="116" width="355" height="587"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Welcome to the intergalactic pursuit adventure set on the mysterious planet of Lengaburu, nestled in the distant galaxy of Tara B. In the wake of a recent and tumultuous war with the neighboring planet Falicornia, the fate of the exiled Queen Al Falcone hangs in the balance.
+
+King Shan, the ruler of Lengaburu, has issued a challenge to you, the intrepid player. Queen Al Falcone, exiled for a duration of 15 long years, now hides in secrecy among six enigmatic planets: DonLon, Enchai, Jebing, Sapir, Lerbin, and Pingasor. The catch? King Shan's resources are limited, and he can deploy his formidable army to only four of these planets.
+
+Your mission, should you choose to accept it, is to help King Shan locate Queen Al Falcone before her exile period is up. Dive into the depths of this thrilling cosmic adventure, strategize wisely, and embark on a journey that will test your decision-making skills, wit, and tactical prowess.
+
+Do you have what it takes to unravel the mystery and bring Queen Al Falcone to justice, or will she remain hidden in the vast expanse of the galaxy for another 15 years? The fate of Lengaburu lies in your hands!</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WIJ-Jf-4Yp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lVN-iX-FbC" firstAttribute="top" secondItem="DgX-ak-Jgg" secondAttribute="bottom" constant="20" id="5fb-0e-VA1"/>
+                            <constraint firstItem="WIJ-Jf-4Yp" firstAttribute="trailing" secondItem="lVN-iX-FbC" secondAttribute="trailing" constant="10" id="8wQ-JL-Tj2"/>
+                            <constraint firstItem="DgX-ak-Jgg" firstAttribute="leading" secondItem="WIJ-Jf-4Yp" secondAttribute="leading" constant="20" id="JFh-lo-85I"/>
+                            <constraint firstItem="Cvz-XU-sqP" firstAttribute="leading" secondItem="WIJ-Jf-4Yp" secondAttribute="leading" constant="20" id="MSB-Rm-nP5"/>
+                            <constraint firstItem="WIJ-Jf-4Yp" firstAttribute="bottom" secondItem="Cvz-XU-sqP" secondAttribute="bottom" constant="10" id="YDl-8c-ONk"/>
+                            <constraint firstAttribute="trailing" secondItem="DgX-ak-Jgg" secondAttribute="trailing" constant="20" id="ZDv-Nb-uk2"/>
+                            <constraint firstItem="DgX-ak-Jgg" firstAttribute="top" secondItem="WIJ-Jf-4Yp" secondAttribute="top" constant="20" id="gcT-H8-EX9"/>
+                            <constraint firstItem="WIJ-Jf-4Yp" firstAttribute="trailing" secondItem="Cvz-XU-sqP" secondAttribute="trailing" constant="20" id="iRW-cL-OP7"/>
+                            <constraint firstItem="Cvz-XU-sqP" firstAttribute="top" secondItem="lVN-iX-FbC" secondAttribute="bottom" constant="20" id="ku2-Rj-IHh"/>
+                            <constraint firstItem="lVN-iX-FbC" firstAttribute="leading" secondItem="WIJ-Jf-4Yp" secondAttribute="leading" constant="10" id="yoY-W5-oxD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="x9U-IZ-bSr"/>
+                    <connections>
+                        <outlet property="textField" destination="lVN-iX-FbC" id="QoE-FS-nmK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5U-62-Eay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-92"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="3j8-M4-FgJ">
+        <scene sceneID="AsN-JO-ETx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="z3i-Wc-OPN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Iid-gv-L7g" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="a1b-86-dGK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L7W-Yg-lxx">
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZPb-Wh-IYp" kind="relationship" relationship="rootViewController" id="hE9-y4-98E"/>
+                        <segue destination="uOi-SB-Hgz" kind="relationship" relationship="rootViewController" id="dWf-Z6-Tea"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wMK-56-i9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXJ-cL-lTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284.73282442748092" y="-91.549295774647888"/>
+            <point key="canvasLocation" x="-65" y="-93"/>
         </scene>
     </scenes>
     <designables>
         <designable name="68G-0R-FPM">
-            <size key="intrinsicContentSize" width="32" height="36"/>
+            <size key="intrinsicContentSize" width="33" height="36"/>
+        </designable>
+        <designable name="Cvz-XU-sqP">
+            <size key="intrinsicContentSize" width="44" height="36"/>
+        </designable>
+        <designable name="HlT-fw-43D">
+            <size key="intrinsicContentSize" width="72" height="36"/>
         </designable>
         <designable name="kHO-XC-jCk">
             <size key="intrinsicContentSize" width="30" height="36"/>
         </designable>
         <designable name="oJe-0Q-0xn">
-            <size key="intrinsicContentSize" width="76" height="36"/>
+            <size key="intrinsicContentSize" width="71" height="36"/>
         </designable>
     </designables>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="arrowshape.backward" catalog="system" width="128" height="104"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
         <image name="starynight" width="1150" height="864"/>
         <namedColor name="GlobalColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

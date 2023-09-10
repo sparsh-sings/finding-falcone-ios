@@ -93,7 +93,7 @@ extension ConfirmationVC {
                     self.tableView.reloadData()
                 }
             case .error(let err) :
-                debugPrint("Error Occured", err)
+                CommonFunction.shared.showApiError(err, viewController: self)
             }
         }
         

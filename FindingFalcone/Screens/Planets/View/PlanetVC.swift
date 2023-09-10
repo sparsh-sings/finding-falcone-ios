@@ -24,11 +24,21 @@ class PlanetVC: UIViewController {
         debugPrint("PlanetVC was deinitilized.")
     }
     
+    @IBAction func helpButtonAction(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "InstructionVC") as? InstructionVC else {
+            return
+        }
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+    }
+    
     @IBAction func letsGoButtonAction(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmationVC") as? ConfirmationVC else { return }
         vc.confirmList = viewModel.mapdata()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
     
 }
 
@@ -95,7 +105,7 @@ extension PlanetVC {
                         self.loader.stopAnimating()
                     }
                 case .error(let err) :
-                    debugPrint("Error Occured", err)
+                    CommonFunction.shared.showApiError(err, viewController: self)
                 }
             }
         }

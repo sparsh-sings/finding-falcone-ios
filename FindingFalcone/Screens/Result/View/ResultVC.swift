@@ -11,8 +11,8 @@ import Lottie
 class ResultVC: UIViewController {
     
     @IBOutlet weak var annimationView: UIView!
-    
-   
+    @IBOutlet weak var planetImage: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     let viewModel = ResultViewModel()
     
@@ -41,16 +41,39 @@ extension ResultVC {
             }
             switch event {
             case .loading :
-                debugPrint("Data Started Loading.")
+                DispatchQueue.main.async {
+                    self.statusLabel.text = "Loading Result"
+                }
             case .responseLoaded(let result) :
                 debugPrint("Data Loaded Successfully")
                 DispatchQueue.main.async {
-                    self.viewModel.showAnnimation(view: self.annimationView, type: result ?? .lose) {
-                        print("Something Happened")
+                    self.viewModel.showAnnimation(view: self.annimationView, type: result ?? .lose) { result in
+                        self.updateData(result: result)
+                        self.viewModel.finalMessage(result, self)
                     }
                 }
             case .error(let err) :
-                debugPrint("Error Occured", err)
+                CommonFunction.shared.showApiError(err, viewController: self)
+            }
+        }
+        
+    }
+    
+    private func updateData(result : ResultType) {
+    
+        if result == .win {
+            statusLabel.text = "Congratulations, Queen Al Falcone was found at " + (viewModel.result?.planetName ?? "")
+            planetImage.image = UIImage(named: viewModel.result?.planetName?.lowercased() ?? "")
+        } else {
+            
+            planetImage.image = UIImage(named: "gameOver")
+            
+            if let error = viewModel.result?.error {
+                statusLabel.text = "Error - " + error
+            } else if let status = viewModel.result?.status {
+                statusLabel.text = "Sorry, Could Not Find Queen Al Falcone."
+            } else {
+                statusLabel.text = "Error 404 : Result not found, please try again later."
             }
         }
         

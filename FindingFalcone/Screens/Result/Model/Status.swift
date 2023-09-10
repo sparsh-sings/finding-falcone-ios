@@ -8,10 +8,11 @@
 import Foundation
 
 struct Status: Codable {
-    let planetName, status: String?
+    let planetName, status, error: String?
 
     enum CodingKeys: String, CodingKey {
         case planetName = "planet_name"
         case status
+        case error
     }
 }
