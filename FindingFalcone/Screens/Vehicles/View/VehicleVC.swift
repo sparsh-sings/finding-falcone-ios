@@ -97,6 +97,7 @@ extension VehicleVC {
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     self.loader.stopAnimating()
+                    self.checkCount()
                 }
             case .error(let err) :
                 CommonFunction.shared.showApiError(err, viewController: self)
@@ -125,6 +126,16 @@ extension VehicleVC {
                 self.navigationController?.popViewController(animated: true)
             }
         }
+    }
+    
+    private func checkCount() {
+        if viewModel.vehicles.isEmpty {
+            CommonFunction.shared.showAlertWithOkAction(title: Constant.App_Name, message: "No Relevant Vehicle found for the given planet.") { buttonIndex in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        
     }
 }
 
