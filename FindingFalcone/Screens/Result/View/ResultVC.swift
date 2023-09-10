@@ -15,6 +15,7 @@ class ResultVC: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     
     let viewModel = ResultViewModel()
+    var loader = UILoader.shared
     
     var data : [String: Any]? {
         didSet {
@@ -42,6 +43,7 @@ extension ResultVC {
             switch event {
             case .loading :
                 DispatchQueue.main.async {
+                    self.loader.startAnimating()
                     self.statusLabel.text = "Loading Result"
                 }
             case .responseLoaded(let result) :
@@ -50,6 +52,7 @@ extension ResultVC {
                     self.viewModel.showAnnimation(view: self.annimationView, type: result ?? .lose) { result in
                         self.updateData(result: result)
                         self.viewModel.finalMessage(result, self)
+                        self.loader.startAnimating()
                     }
                 }
             case .error(let err) :

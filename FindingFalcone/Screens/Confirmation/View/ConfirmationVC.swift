@@ -12,6 +12,7 @@ class ConfirmationVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = ConfirmationViewModel()
+    var loader = UILoader.shared
     var confirmList : [String: String]?
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class ConfirmationVC: UIViewController {
     
     @IBAction func buttonAction(_ sender: UIButton) {
         if sender.tag == 0 {
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         } else {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC else {
                 return
@@ -85,12 +86,12 @@ extension ConfirmationVC {
             }
             switch event {
             case .loading :
-                debugPrint("Data Started Loading.")
+                loader.startAnimating()
             case .dataLoaded :
                 debugPrint("Data Loaded Successfully")
                 DispatchQueue.main.async {
-                    print(self.viewModel.token)
                     self.tableView.reloadData()
+                    self.loader.stopAnimating()
                 }
             case .error(let err) :
                 CommonFunction.shared.showApiError(err, viewController: self)

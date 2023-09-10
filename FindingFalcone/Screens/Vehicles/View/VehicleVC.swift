@@ -22,6 +22,7 @@ class VehicleVC: UIViewController {
     weak var delegate : VehicleSelectedProtocol?
     
     var viewModel = VehicleViewModel()
+    var loader = UILoader.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,11 +91,12 @@ extension VehicleVC {
             }
             switch event {
             case .loading :
-                debugPrint("Data Started Loading.")
+                loader.startAnimating()
             case .dataLoaded :
                 debugPrint("Data Loaded Successfully")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    self.loader.stopAnimating()
                 }
             case .error(let err) :
                 CommonFunction.shared.showApiError(err, viewController: self)

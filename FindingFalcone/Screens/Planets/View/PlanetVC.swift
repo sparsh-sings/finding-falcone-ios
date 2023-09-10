@@ -59,12 +59,22 @@ extension PlanetVC : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
-        vc.delegate = self
-        vc.vehicleUsed = viewModel.indexWithVehicle
-        vc.planetIndex = indexPath.row
-        vc.planet = viewModel.planets[indexPath.item]
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if viewModel.mapdata().count > 3 {
+            
+            let message = "You have selected all the vehicles for this journey, please click on Let's Go to get the result."
+            CommonFunction.shared.showAlertWithOkAction(title: Constant.App_Name, message: message) { buttonIndex in
+                debugPrint("Ok Button was tapped.")
+            }
+            
+        } else {
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleVC") as? VehicleVC else { return }
+            vc.delegate = self
+            vc.vehicleUsed = viewModel.indexWithVehicle
+            vc.planetIndex = indexPath.row
+            vc.planet = viewModel.planets[indexPath.item]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -85,6 +95,7 @@ extension PlanetVC {
         let nib = UINib(nibName: "PlanetCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "PlanetCell")
         
+        updateButtonStatus()
         updateEvents()
         viewModel.getPlanetList()
         
@@ -115,7 +126,22 @@ extension PlanetVC : VehicleSelectedProtocol {
     
     func didSelectVehicle(planetIndex: Int, vehicleName: String) {
         viewModel.indexWithVehicle.updateValue(vehicleName, forKey: planetIndex)
+        updateButtonStatus()
         collectionView.reloadData()
+    }
+    
+    fileprivate func updateButtonStatus() {
+        
+        let mappedDataCount = viewModel.mapdata().count
+        
+        if mappedDataCount == 4 {
+            letsGoButton.isUserInteractionEnabled = true
+            letsGoButton.backgroundColor = UIColor.systemTeal
+        } else {
+            letsGoButton.isUserInteractionEnabled = false
+            letsGoButton.backgroundColor = UIColor.systemGray
+        }
+        
     }
     
 }
